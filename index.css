@@ -1,0 +1,419 @@
+:root {
+    --primary-tomato: hsl(4, 100%, 67%);
+    --primary-salmon: #fc6785;
+    --primary-tomato-error: hsla(4, 100%, 67%, 0.4);
+    --primary-tomato-error-border: hsla(4, 100%, 67%, 0.7);
+
+    --dark-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%);
+
+    --fs: 16px;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(./assets/fonts/Roboto-Regular.ttf)
+}
+
+@font-face {
+    font-family: Roboto-bold;
+    src: url(./assets/fonts/Roboto-Bold.ttf);
+}
+
+/* 1. Use a more-intuitive box-sizing model.*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin.*/
+* {
+  margin: 0;
+}
+/* 3. Allow percentage-based heights in the application */
+html, body {
+  height: 100%;
+  color: var(--dark-grey);
+}
+/* Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--charcoal-grey);
+  font-family: Roboto, 'Times New Roman', Times, serif;
+}
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/* 7. Remove built-in form typography styles */
+input, button, textarea, select {
+  font: inherit;
+}
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+.form-container {
+  background-color: var(--white);
+  width: 90%;
+  margin: 0 auto;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em 0;
+}
+
+.sign-up-header {
+  font-size: 2.5rem;
+  padding-bottom: 0.5em;
+  font-family: Roboto-bold, 'Times New Roman', Times, serif;
+}
+
+.container-list {
+  padding-top: 1.5em;
+}
+
+.list-item {
+  list-style-image: url('./assets/images/icon-list.svg');
+  padding: 0.5em 0;
+}
+
+.sign-up-form {
+  display: grid;
+  position: relative;
+}
+
+.sign-up-form > label {
+  padding-top: 0.5em;
+}
+
+#email {
+  margin: 0.25em 0 1.5em 0;
+  padding: 1.1em 0.75em;
+  border-radius: 0.5em;
+}
+
+.btn {
+  padding: 1.1em;
+  border-radius: 0.5em;
+  border: none;
+  background-color: var(--dark-grey);
+  color: var(--white);
+  width: 100%;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    var(--primary-tomato) 25%,
+    var(--primary-salmon) 100%
+  );
+}
+
+#email:hover {
+  cursor: pointer;
+}
+
+.fail {
+  background-color: var(--primary-tomato-error);
+  border: 2px solid var(--primary-tomato-error-border);
+}
+
+.message{
+  display: none;
+}
+
+.fail-message {
+  display: inline;
+  color: var(--primary-tomato);
+  position: absolute;
+  justify-self: end;
+}
+
+.active {
+  display: none !important;
+}
+
+.modal-success {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  border: none;
+  margin: auto;
+  border-radius: 1em;
+  color: var(--dark-grey);
+}
+
+.modal-content > img {
+  padding: 2em 0;
+}
+
+.modal-heading {
+  font-size: 2.5rem;
+  font-family: Roboto-bold, 'Times New Roman', serif;
+}
+
+.modal-description {
+  padding: 1em 0;
+  font-size: 1.1rem;
+}
+
+.modal-close {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 0.5em;
+  background-color: var(--dark-grey);
+  color: var(--white);
+  position: absolute;
+  bottom: 1.5em;
+  width: 90%;
+}
+
+.modal-close:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    var(--primary-tomato) 25%,
+    var(--primary-salmon) 100%
+  );
+}
+
+.footer {
+  color: var(--white);
+  display: grid;
+  text-align: center;
+}
+
+.footer a {
+  color: var(--primary-tomato);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  cursor: pointer;
+  color: var(--primary-salmon);
+}
+
+
+@media screen and (width > 420px) {
+  .form-container {
+    width: 75%;
+  }
+}
+
+@media screen and (width > 500px) {
+  .form-container {
+    width: 60%;
+    border-radius: 1em;
+  }
+
+  .modal-success {
+    width: 60%;
+  }
+}
+
+@media screen and (width > 660px) {
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: 1.5em auto;
+  }
+
+  .img {
+    order: 2;
+    
+  }
+
+  .container {
+    order: 1;
+  }
+
+  .sign-up-header {
+    padding: 0.5em 0;
+  }
+
+  .list-item {
+    padding: 0.5em 0;
+  }
+
+  .modal-success {
+    width: 50%;
+  }
+
+  .modal-success {
+    width: 50%;
+    height: fit-content;
+    text-align: center;
+  }
+
+  .modal-description {
+    padding: 2em 0;
+  }
+
+  .modal-close {
+    position: relative;
+  }
+}
+
+@media screen and (width > 890px) {
+  .form-container {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    width: 80%;
+    margin: 1.5em auto;
+  }
+
+  .img {
+    order: 2;
+    
+  }
+
+  .container {
+    order: 1;
+  }
+
+  .sign-up-header {
+    padding: 0.5em 0;
+  }
+
+  .list-item {
+    padding: 0.5em 0;
+  }
+
+  .modal-success {
+    margin-top: 1em;
+    width: 40%;
+    height: fit-content;
+    text-align: center;
+  }
+
+  .modal-description {
+    padding: 2em 0;
+  }
+
+  .modal-close {
+    position: relative;
+  }
+}
+
+@media screen and (width > 1100px) {
+  .form-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 70%;
+    margin: 1.5em auto;
+  }
+
+  .img {
+    order: 2;
+    
+  }
+
+  .container {
+    order: 1;
+  }
+
+  .sign-up-header {
+    padding: 0.5em 0;
+  }
+
+  .list-item {
+    padding: 0.5em 0;
+  }
+
+  .modal-success {
+    width: 30%;
+    height: fit-content;
+    text-align: center;
+  }
+
+  .modal-description {
+    padding: 2em 0;
+  }
+
+  .modal-close {
+    position: relative;
+  }
+
+  dialog[open] {
+    animation: myFadeIn 1s ease-in-out;
+  }
+
+  @keyframes myFadeIn {
+    from {
+      opacity: 0;
+      scale: 0;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+}
+
+@media screen and (width > 1400px) {
+  .form-container {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    width: 55%;
+    margin: 1.5em auto;
+  }
+
+  .img {
+    order: 2;
+    
+  }
+
+  .container {
+    order: 1;
+  }
+
+  .sign-up-header {
+    padding: 0.5em 0;
+  }
+
+  .list-item {
+    padding: 0.5em 0;
+  }
+
+  .modal-success {
+    width: 30%;
+    height: fit-content;
+    text-align: center;
+  }
+
+  .modal-description {
+    padding: 2em 0;
+  }
+
+  .modal-close {
+    position: relative;
+  }
+  
+  dialog[open] {
+    animation: myFadeIn 1s ease-in-out;
+  }
+
+  @keyframes myFadeIn {
+    from {
+      opacity: 0;
+      scale: 0;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+}
